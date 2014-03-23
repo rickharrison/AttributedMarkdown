@@ -199,9 +199,9 @@ static void print_attr_element(NSMutableAttributedString *out, element *elt, NSD
                 NSDictionary *linkAttibutes = @{@"attributedMarkdownURL": url};
                 print_attr_element_list(out, elt->contents.link->label, attributes, merge(current, merge(attributes[elt->key], linkAttibutes)));
             } else {
-                NSDictionary *attributesBroken = @{NSForegroundColorAttributeName: [TARGET_PLATFORM_COLOR redColor]}; // Make this attributes[BROKEN]
-                print_attr_element_list(out, elt->contents.link->label, attributes, merge(current, attributesBroken));
-                print_attr_string(out, [NSString stringWithFormat: @" (%@)", elt->contents.link->url], current);
+                //NSDictionary *attributesBroken = @{NSForegroundColorAttributeName: [TARGET_PLATFORM_COLOR redColor]}; // Make this attributes[BROKEN]
+                print_attr_element_list(out, elt->contents.link->label, attributes, current);
+                //print_attr_string(out, [NSString stringWithFormat: @" (%@)", elt->contents.link->url], current);
             }
             break;
         case IMAGE:
